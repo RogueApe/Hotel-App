@@ -276,8 +276,17 @@
   cursor: pointer;
   transition: all 0.2s;
 
+  & span {
+    margin-left: 2.5px;
+    transition: margin-left 0.2s;
+  }
+
   &:hover {
     color: var(--color-grey-dark-1);
+
+    & span {
+      margin-left: 10px;
+    }
   }
 
   &:focus {
@@ -346,8 +355,170 @@
 }
 
 ////////////////////////////
-// RECOMMEND REVIEWS
+// RECOMMEND
 .recommend {
   font-size: 1.25rem;
   margin-top: 2rem;
+
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+
+  &__count {
+  }
+
+  &__friends {
+  }
+
+  &__photo {
+    box-sizing: content-box;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    border: 3px solid white;
+
+    &:not(:last-child) {
+      margin-right: -1.5rem;
+    }
+  }
+}
+
+////////////////////////////
+// REVIEWS
+.review {
+  background-color: #fff;
+  box-shadow: var(--shadow-light);
+  padding: 3rem;
+  margin-bottom: 3.5rem;
+  position: relative;
+  overflow: hidden;
+
+  &__text {
+    z-index: 10;
+    position: relative;
+    color: var(--color-grey-dark-2);
+    margin-bottom: 2rem;
+  }
+
+  &::before {
+    content: "\201c";
+    position: absolute;
+    z-index: 1;
+    top: -2.75rem;
+    left: -1rem;
+    line-height: 1;
+    font-size: 20rem;
+    color: var(--color-grey-light-3);
+    // opacity: 0.3;
+  }
+
+  &::after {
+    content: "\201d";
+    position: absolute;
+    z-index: 1;
+    bottom: -13rem;
+    right: -1.1rem;
+    line-height: 1;
+    font-size: 20rem;
+    color: var(--color-grey-light-3);
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+  }
+
+  &__photo {
+    height: 7.5rem;
+    width: 7.5rem;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+  }
+
+  &__user-box {
+    margin-right: auto;
+  }
+
+  &__name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    color: var(--color-grey-dark-1);
+  }
+
+  &__date {
+    font-size: 1.2rem;
+    color: var(--color-grey-dark-3);
+  }
+
+  &__rating {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+}
+
+///////////////
+// CALL TO ACTION (CTA)
+
+.cta {
+  padding: 3.5rem 0;
+  text-align: center;
+
+  &__booking-now {
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.btn {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 100px;
+  background-image: linear-gradient(to right, var(--color-button-dark), var(--color-button-light));
+  color: #fff;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+
+  & > * {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    transition: all 0.3s;
+  }
+
+  &__visible {
+    padding: 2rem 6.5rem;
+  }
+
+  &__invisible {
+    position: absolute;
+    padding: 2rem 0;
+    left: 0;
+    top: -100%;
+  }
+  //color goes from right to left
+  &:hover {
+    background-image: linear-gradient(to left, var(--color-button-dark), var(--color-button-light));
+  }
+  // text goes up
+  &:hover &__visible {
+    transform: translateY(100%);
+  }
+  // text goes down
+  &:hover &__invisible {
+    top: 0;
+  }
+  // animation when clicked
+  &:focus {
+    outline: none;
+    animation: buttonPulse 1s infinite;
+  }
 }
