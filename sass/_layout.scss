@@ -39,6 +39,7 @@
 ///////////////
 // Page Description
 .detail {
+  font-size: 1.3rem;
   display: flex;
   padding: 4.5rem;
   background-color: var(--color-grey-light-1);
@@ -46,7 +47,7 @@
 }
 
 .description {
-  font-size: 1.5rem;
+  color: var(--color-grey-dark-1);
   background-color: #fff;
   box-shadow: var(--shadow-light);
   padding: 3rem;
@@ -55,6 +56,9 @@
 }
 
 .user-reviews {
-  background-color: palegreen;
   flex: 1;
+  // Set the right side layout all to center (including the arrow on bottom)
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
